@@ -8,466 +8,134 @@
 <title>Pesan Template Photobooth</title>
 <style>
 :root{
-  --bg:#fffaf5;
-  --card:#ffffff;
-  --text:#32170f;
-  --muted:#8c6e61;
-  --accent:#ff6b35;
-  --accent-2:#ff3d81;
-  --accent-3:#6c63ff;
-  --accent-ink:#ffffff;
-  --border:#f1ded1;
-  --soft:#fff0e7;
-  --soft-2:#f5efff;
-  --success:#15976b;
-  --danger:#d64545;
+  --text:#32170f;--muted:#8c6e61;--accent:#ff6b35;--accent-2:#ff3d81;--accent-3:#6c63ff;
+  --border:#f1ded1;--danger:#d64545;
   --shadow:0 10px 30px rgba(110,54,23,.08);
 }
 *{box-sizing:border-box}
-html{
-  scroll-padding-top:18px;
-  width:100%;
-  min-width:0;
-  max-width:100%;
-  overflow-x:hidden;
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-}
-html,body{
-  min-height:100%;
-  width:100%;
-  min-width:0;
-  max-width:100%;
-  overflow-x:hidden;
-}
+html{scroll-padding-top:18px;width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{
-  margin:0;
+  margin:0;min-height:100%;width:100%;overflow-x:hidden;color:var(--text);
   background:
-    radial-gradient(circle at 10% 0%, rgba(255,107,53,.14), transparent 28%),
-    radial-gradient(circle at 95% 8%, rgba(108,99,255,.13), transparent 25%),
+    radial-gradient(circle at 10% 0%,rgba(255,107,53,.14),transparent 28%),
+    radial-gradient(circle at 95% 8%,rgba(108,99,255,.13),transparent 25%),
     linear-gradient(180deg,#fffaf5 0%,#fff 52%,#fff8fb 100%);
-  color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;
 }
 button,input,textarea{font:inherit}
-.app{width:100%;max-width:620px;margin:0 auto;padding:20px 16px 170px}
-.brand-header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-.brand-mascot{width:52px;height:52px;object-fit:contain;flex-shrink:0}
-.brand-wordmark{height:40px;object-fit:contain}
-.tagline{margin:0 0 16px;color:var(--muted);font-size:13px;line-height:1.5}
-.brand-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  width:100%;
-}
-.brand-left-logo{
-  width:52px;
-  height:52px;
-  object-fit:contain;
-  flex:0 0 auto;
-}
-.brand-right-logo{
-  width:164px;
-  height:56px;
-  object-fit:contain;
-  display:block;
-  margin-left:auto;
-}
-.price-card{
-  background:linear-gradient(135deg,#fff6ed 0%,#fff 55%,#fff2f8 100%);
-  border:1px solid #ffd8c6;
-  border-radius:20px;
-  padding:15px;
-  margin:0 0 14px;
-  box-shadow:var(--shadow);
-}
-.price-title{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-size:15px;
-  font-weight:900;
-  margin:0 0 10px;
-}
+.app{width:100%;max-width:620px;margin:0 auto;padding:20px 16px 130px}
+
+.brand-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.brand-left-logo{width:52px;height:52px;object-fit:contain;flex:0 0 auto}
+.brand-right-logo{width:164px;height:56px;object-fit:contain;display:block;margin-left:auto}
+.tagline{margin:0 0 16px;color:var(--muted);font-size:13.5px;line-height:1.55}
+
+.price-card{background:linear-gradient(135deg,#fff6ed 0%,#fff 55%,#fff2f8 100%);border:1px solid #ffd8c6;border-radius:20px;padding:15px;margin:0 0 14px;box-shadow:var(--shadow)}
+.price-title{font-size:15px;font-weight:900;margin:0 0 10px}
 .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .price-item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px}
 .price-item .name{font-size:12.5px;font-weight:800;color:var(--muted);line-height:1.3}
 .price-item .amount{font-size:20px;font-weight:900;color:var(--accent);margin-top:4px}
 .price-item .sub{font-size:11px;color:var(--muted);margin-top:2px}
 .price-note{font-size:11.5px;color:var(--muted);margin:10px 0 0;line-height:1.45}
-.progress-wrap{
-  background:rgba(255,255,255,.9);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:12px;
-  margin-bottom:14px;
-  box-shadow:var(--shadow);
-}
-.progress-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}
-.progress-title{font-size:12px;font-weight:800;color:var(--text)}
-.progress-text{font-size:12px;font-weight:700;color:var(--accent)}
-.progress-bar{height:8px;background:#f7e9df;border-radius:99px;overflow:hidden}
-.progress-fill{height:100%;width:33.333%;background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));border-radius:99px;transition:width .25s ease}
-.stage-dots{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
-.stage-dot{
-  border:1px solid var(--border);border-radius:10px;padding:7px 6px;
-  text-align:center;font-size:11px;font-weight:800;color:var(--muted);background:#fff;
-}
-.stage-dot.active{border-color:transparent;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
-.stage-dot.done{background:var(--soft);color:var(--accent);border-color:#ffd2c0}
-.stage{display:none}
-.stage.active{display:block}
-.card{
-  position:relative;background:var(--card);border:1px solid var(--border);
-  border-radius:20px;padding:17px;margin-bottom:14px;box-shadow:var(--shadow);
-}
+
+.card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:17px;margin-bottom:14px;box-shadow:var(--shadow)}
 .card.highlight{background:linear-gradient(180deg,#fff9f4 0%,#fff 100%);border-color:#ffd8c6}
 .card.soft-purple{background:linear-gradient(180deg,#fbf9ff 0%,#fff 100%);border-color:#e5dcff}
-.card h2{font-size:15px;margin:0 0 11px;display:flex;align-items:center;gap:8px}
-.card h2 .n{
-  width:24px;height:24px;border-radius:9px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  color:#fff;font-size:11px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.section-note{font-size:12px;color:var(--muted);margin:-4px 0 12px;line-height:1.55}
+.card h2{font-size:16px;margin:0 0 11px;display:flex;align-items:center;gap:8px}
+.card h2 .n{width:24px;height:24px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-size:11px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-note{font-size:12.5px;color:var(--muted);margin:-4px 0 12px;line-height:1.55}
+
 .field-grid{display:grid;gap:10px}
 .field-grid.two{grid-template-columns:1fr 1fr}
-label.field-label{display:block;font-size:13px;font-weight:800;margin-bottom:6px}
+label.field-label{display:block;font-size:13.5px;font-weight:800;margin-bottom:6px}
 input[type=text],input[type=tel],input[type=date],textarea{
   width:100%;padding:12px 13px;border-radius:12px;border:1.5px solid var(--border);
-  background:#fff;color:var(--text);font-size:15px;font-family:inherit;outline:none;transition:.15s;
+  background:#fff;color:var(--text);font-size:16px;outline:none;transition:.15s;
 }
-input[type=text]:focus,input[type=tel]:focus,input[type=date]:focus,textarea:focus{
-  border-color:#ffaf93;box-shadow:0 0 0 4px rgba(255,107,53,.10);
-}
-.readonly-field{background:var(--soft);color:var(--accent);font-weight:800}
-textarea{resize:vertical;min-height:82px}
-input.invalid,.invalid textarea,.invalid input{border-color:var(--danger)!important}
+input[type=text]:focus,input[type=tel]:focus,input[type=date]:focus,textarea:focus{border-color:#ffaf93;box-shadow:0 0 0 4px rgba(255,107,53,.10)}
+textarea{resize:vertical;min-height:96px}
+.invalid input,.invalid textarea{border-color:var(--danger)!important}
 .err-msg{color:var(--danger);font-size:12px;margin-top:5px;display:none;line-height:1.35}
 .invalid .err-msg{display:block}
 .hint{color:var(--muted);font-size:12px;margin:7px 0 0;line-height:1.5}
+
 .seg{display:flex;gap:8px;margin-bottom:4px}
-.seg label{
-  flex:1;text-align:center;padding:11px 8px;border-radius:12px;
-  border:1.5px solid var(--border);font-size:13px;font-weight:800;cursor:pointer;color:var(--muted);
-  background:#fff;transition:.15s;
-}
+.seg label{flex:1;text-align:center;padding:13px 8px;border-radius:12px;border:1.5px solid var(--border);font-size:14px;font-weight:800;cursor:pointer;color:var(--muted);background:#fff;transition:.15s;display:flex;align-items:center;justify-content:center;min-height:50px}
 .seg input{position:absolute;opacity:0;width:0;height:0}
-.seg label:has(input:checked){
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(255,107,53,.18);
-}
-.carousel{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;
-  padding:10px 0 4px;width:100%;
-}
+.seg label:has(input:checked){background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(255,107,53,.18)}
+.seg label:has(input:focus-visible){outline:3px solid rgba(108,99,255,.45);outline-offset:2px}
+
+.carousel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:10px 6px 10px 2px;max-height:430px;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
 .tpl-card{position:relative;min-width:0;cursor:pointer}
 .tpl-radio{position:absolute;opacity:0;width:0;height:0}
-.tpl-inner{
-  aspect-ratio:4 / 5;min-height:170px;border-radius:16px;position:relative;overflow:hidden;
-  cursor:pointer;background:#f4ebe6;box-shadow:0 6px 16px rgba(0,0,0,.08);
-  border:2px solid transparent;transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-}
-.tpl-inner:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.12)}
+.tpl-inner{aspect-ratio:4/5;border-radius:16px;position:relative;overflow:hidden;background:#f4ebe6;box-shadow:0 6px 16px rgba(0,0,0,.08);border:2px solid transparent;transition:transform .15s,box-shadow .15s,border-color .15s}
 .tpl-image{width:100%;height:100%;object-fit:cover;display:block}
 .tpl-inner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.55))}
 .tpl-name{position:absolute;left:10px;right:10px;bottom:10px;color:#fff;font-weight:900;font-size:12.5px;z-index:2;line-height:1.25;text-shadow:0 1px 3px rgba(0,0,0,.3)}
-.tpl-radio:checked + .tpl-inner{border-color:var(--accent);outline:0;transform:translateY(-2px);box-shadow:0 0 0 3px rgba(255,107,53,.16),0 10px 22px rgba(255,107,53,.16)}
+.tpl-radio:checked + .tpl-inner{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 0 0 3px rgba(255,107,53,.16),0 10px 22px rgba(255,107,53,.16)}
+.tpl-radio:focus-visible + .tpl-inner{outline:3px solid rgba(108,99,255,.45);outline-offset:2px}
 .tpl-image-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:var(--muted);font-size:12px;font-weight:800;text-align:center;padding:12px;background:linear-gradient(135deg,#fff0e7,#f7f0ff)}
 .tpl-image-error .tpl-image{display:none}
 .tpl-image-error .tpl-image-fallback{display:flex}
-.check{
-  position:absolute!important;top:8px;right:8px;width:26px;height:26px;border-radius:50%;
-  background:#fff;color:var(--accent);display:flex;align-items:center;justify-content:center;
-  font-size:13px;opacity:0;transform:scale(.6);transition:.15s;z-index:3!important;
-  box-shadow:0 4px 10px rgba(0,0,0,.15);
-}
+.check{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:13px;opacity:0;transform:scale(.6);transition:.15s;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.15)}
 .tpl-radio:checked + .tpl-inner .check{opacity:1;transform:scale(1)}
-.tpl-zoom{
-  position:absolute!important;top:8px;left:8px;width:30px;height:30px;border-radius:50%;
-  background:rgba(255,255,255,.92);border:none;color:var(--text);display:flex;align-items:center;justify-content:center;
-  cursor:pointer;z-index:4!important;box-shadow:0 4px 10px rgba(0,0,0,.18);transition:.15s;padding:0;
-}
-.tpl-zoom svg{width:16px;height:16px;display:block;pointer-events:none}
-.tpl-zoom:hover{background:#fff;transform:scale(1.08)}
-.tpl-zoom:active{transform:scale(.95)}
-.tpl-preview-overlay{
-  position:fixed;inset:0;background:rgba(20,10,6,.88);display:flex;align-items:center;justify-content:center;
-  z-index:100;opacity:0;pointer-events:none;transition:opacity .2s ease;padding:28px 20px;
-}
+.tpl-zoom{position:absolute;top:8px;left:8px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);border:none;color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:4;box-shadow:0 4px 10px rgba(0,0,0,.18);padding:0}
+.tpl-zoom svg{width:16px;height:16px;pointer-events:none}
+
+.tpl-preview-overlay{position:fixed;inset:0;background:rgba(20,10,6,.88);display:flex;align-items:center;justify-content:center;z-index:100;opacity:0;pointer-events:none;transition:opacity .2s;padding:28px 20px}
 .tpl-preview-overlay.show{opacity:1;pointer-events:auto}
 .tpl-preview-inner{position:relative;max-width:min(92vw,520px);max-height:88vh;display:flex;flex-direction:column;align-items:center;gap:10px}
-.tpl-preview-img{max-width:100%;max-height:76vh;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.4);object-fit:contain;background:#fff;display:block}
-.tpl-preview-caption{color:#fff;font-weight:900;font-size:14px;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.4)}
-.tpl-preview-close{
-  position:absolute;top:-14px;right:-14px;width:34px;height:34px;border-radius:50%;border:none;
-  background:#fff;color:var(--text);font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.25);
-  display:flex;align-items:center;justify-content:center;
-}
-.upload-zone{
-  border:2px dashed #efcbbb;border-radius:15px;padding:17px;text-align:center;cursor:pointer;
-  color:var(--muted);font-size:13px;background:#fffaf7;transition:.15s;
-}
-.upload-zone:hover{border-color:#ff9e7c;background:#fff5ee}
-.upload-zone:active{background:var(--soft)}
-.upload-zone b{color:var(--accent)}
-.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-.thumb{position:relative;aspect-ratio:1;border-radius:11px;overflow:hidden;background:#f7eee9}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb button{
-  position:absolute;top:4px;right:4px;width:21px;height:21px;border-radius:50%;border:none;
-  background:rgba(49,23,15,.7);color:#fff;font-size:11px;line-height:1;cursor:pointer;
-}
-.counter{font-size:12px;color:var(--muted);margin-top:8px}
-.counter b{color:var(--accent)}
-.file-chip{
-  display:none;align-items:center;gap:8px;background:var(--soft-2);border:1px solid #e2d8ff;
-  border-radius:11px;padding:9px 11px;margin-top:10px;font-size:13px;color:#5c4ca3
-}
-.file-chip.show{display:flex}
-.file-chip button{
-  margin-left:auto;width:19px;height:19px;border-radius:50%;border:none;
-  background:rgba(0,0,0,.08);color:var(--text);font-size:11px;cursor:pointer;flex-shrink:0;
-}
-.info-box{
-  background:linear-gradient(180deg,#fff7e9,#fffdfa);border:1px solid #f8e2bd;
-  border-radius:14px;padding:12px;font-size:12.5px;color:#7b6248;line-height:1.7;
-}
-.info-box p{margin:0 0 8px}.info-box p:last-child{margin-bottom:0}.info-box b{color:var(--text)}
-.agree{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:13px;line-height:1.5}
-.agree input{margin-top:3px;flex-shrink:0;width:18px;height:18px;accent-color:var(--accent)}
-.summary{
-  display:grid;gap:8px;margin-top:12px;padding:12px;border-radius:14px;background:#faf7ff;border:1px solid #e7defd;
-}
-.summary-row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px}
-.summary-row span:first-child{color:var(--muted)} .summary-row b{color:var(--text);text-align:right}
-.total-card{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;
-  margin-bottom:14px;border-radius:16px;background:linear-gradient(135deg,#fff0e7,#f8f2ff);
-  border:1px solid #efd9d2;
-}
-.total-card .label{font-size:12px;color:var(--muted);font-weight:800}.total-card .amt{font-size:20px;font-weight:900;color:var(--accent)}
-.footer{
-  position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
-  border-top:1px solid var(--border);padding:11px 16px calc(11px + env(safe-area-inset-bottom,0px));z-index:10;
-}
-.footer-row,.footer-actions{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:9px}
-.footer-actions{flex-direction:column}
-.nav-btn,.cta{
-  border-radius:13px;padding:13px 16px;font-size:14px;font-weight:900;cursor:pointer;
-}
-.nav-btn{background:#fff;border:1.5px solid var(--border);color:var(--text);flex:0 0 auto}
-.cta{
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  color:#fff;border:none;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:7px;
-  text-decoration:none;flex:1;box-shadow:0 8px 20px rgba(255,81,90,.20)
-}
-.cta.secondary{background:linear-gradient(135deg,#6c63ff,#8f7cff)}
-.cta:disabled,.cta.disabled{opacity:.45;pointer-events:none}
-.banner{
-  position:fixed;top:12px;left:16px;right:16px;max-width:528px;margin:0 auto;
-  background:linear-gradient(135deg,#d9485f,#b52b4a);color:#fff;padding:11px 14px;border-radius:12px;
-  font-size:13px;text-align:center;transform:translateY(-160%);transition:.25s;z-index:20;box-shadow:0 10px 24px rgba(100,0,20,.18)
-}
-.banner.show{transform:translateY(0)}
-.status{font-size:12px;color:var(--muted);text-align:center;margin-top:8px;display:none;line-height:1.5}
-.status.show{display:block}
-@media (max-width:700px){
-  html,body{width:100%;max-width:100%;overflow-x:hidden}
-  body{font-size:16px}
-  .app{width:100%;max-width:none;margin:0;padding:14px 12px 200px}
+.tpl-preview-img{max-width:100%;max-height:76vh;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.4);object-fit:contain;background:#fff}
+.tpl-preview-caption{color:#fff;font-weight:900;font-size:14px;text-align:center}
+.tpl-preview-close{position:absolute;top:-14px;right:-14px;width:34px;height:34px;border-radius:50%;border:none;background:#fff;color:var(--text);font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 
-  .brand-header{gap:8px;margin-bottom:5px}
+.wa-box{background:linear-gradient(180deg,#f1fbf6,#fcfffd);border:1px solid #bfe8d5;border-radius:14px;padding:13px;font-size:13px;line-height:1.6;color:#2c5b49}
+.wa-box b{color:var(--text)}
+.wa-box ul{margin:8px 0 0;padding-left:20px}
+.wa-box li{margin-bottom:3px}
+.custom-box{margin-top:10px}
+
+.info-box{background:linear-gradient(180deg,#fff7e9,#fffdfa);border:1px solid #f8e2bd;border-radius:14px;padding:13px;font-size:13px;color:#7b6248;line-height:1.7}
+.info-box p{margin:0 0 8px}.info-box p:last-child{margin-bottom:0}.info-box b{color:var(--text)}
+.agree{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:14px;line-height:1.5}
+.agree input{margin-top:3px;flex-shrink:0;width:20px;height:20px;accent-color:var(--accent)}
+
+.total-card{padding:15px 16px;margin-bottom:14px;border-radius:16px;background:linear-gradient(135deg,#fff0e7,#f8f2ff);border:1px solid #efd9d2}
+.total-row{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-bottom:5px}
+.total-row b{color:var(--text)}
+.total-main{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:9px;padding-top:10px;border-top:1px dashed #e6c9bd}
+.total-main .label{font-size:13px;color:var(--text);font-weight:800}
+.total-main .amt{font-size:22px;font-weight:900;color:var(--accent)}
+
+.summary{display:grid;gap:8px;padding:12px;border-radius:14px;background:#faf7ff;border:1px solid #e7defd;margin-bottom:14px}
+.summary-row{display:flex;justify-content:space-between;gap:10px;font-size:13.5px}
+.summary-row span:first-child{color:var(--muted)}.summary-row b{text-align:right}
+
+.footer{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));z-index:10}
+.footer-inner{max-width:560px;margin:0 auto}
+.cta{width:100%;border-radius:13px;min-height:52px;padding:13px 16px;font-size:15px;font-weight:900;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 8px 20px rgba(255,81,90,.20)}
+.banner{position:fixed;top:12px;left:16px;right:16px;max-width:528px;margin:0 auto;background:linear-gradient(135deg,#d9485f,#b52b4a);color:#fff;padding:11px 14px;border-radius:12px;font-size:13px;text-align:center;transform:translateY(-160%);transition:.25s;z-index:120;box-shadow:0 10px 24px rgba(100,0,20,.18)}
+.banner.show{transform:translateY(0)}
+
+@media (max-width:700px){
+  .app{padding:14px 12px 120px}
   .brand-left-logo{width:48px;height:48px}
   .brand-right-logo{width:min(44vw,154px);height:48px}
-
-  .tagline{font-size:13.5px;margin-bottom:13px;line-height:1.55}
-  .price-card{padding:14px;border-radius:17px;margin-bottom:12px}
-  .price-title{font-size:16px;margin-bottom:10px}
-  .price-grid{gap:8px}
-  .price-item{padding:11px;border-radius:13px}
-  .price-item .name{font-size:12.5px}
-  .price-item .amount{font-size:20px}
-  .price-note{font-size:11.5px}
-
-  .progress-wrap{padding:11px;border-radius:16px;margin-bottom:13px}
-  .progress-top{margin-bottom:8px}
-  .progress-title,.progress-text{font-size:12.5px}
-  .progress-bar{height:9px}
-  .stage-dots{gap:5px;margin-top:9px}
-  .stage-dot{min-width:0;padding:9px 4px;border-radius:10px;font-size:11px;line-height:1.2}
-
-  .card{padding:15px;border-radius:18px;margin-bottom:12px}
-  .card h2{font-size:16px;margin-bottom:10px}
-  .section-note{font-size:12.5px;line-height:1.55}
   .field-grid.two{grid-template-columns:1fr}
-
-  label.field-label{font-size:14px}
-  input[type=text],input[type=tel],input[type=date],textarea{
-    width:100%;min-height:52px;padding:13px 14px;font-size:17px;border-radius:13px
-  }
+  input[type=text],input[type=tel],input[type=date],textarea{min-height:52px;font-size:17px}
   textarea{min-height:110px}
-
-  .seg{gap:7px}
-  .seg label{min-height:50px;padding:13px 8px;font-size:14.5px;display:flex;align-items:center;justify-content:center}
-
-  .carousel{
-    display:flex;gap:10px;
-    padding:10px 4px 10px 2px;overflow-x:auto;overflow-y:visible;
-    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;
-  }
-  .carousel::-webkit-scrollbar{display:none}
-  .tpl-card{flex:0 0 auto;width:38vw;max-width:150px;min-width:120px;scroll-snap-align:start}
-  .tpl-inner{min-height:0;aspect-ratio:4 / 5;border-radius:15px}
-  .tpl-name{font-size:12.5px;left:9px;right:9px;bottom:9px}
-  .check{width:24px;height:24px;font-size:12px;top:7px;right:7px}
+  .carousel{grid-template-columns:repeat(2,minmax(0,1fr));max-height:460px;padding:10px 2px}
   .tpl-zoom{width:26px;height:26px;top:7px;left:7px}
   .tpl-zoom svg{width:14px;height:14px}
-
-  .upload-zone{min-height:80px;padding:19px 12px;font-size:14px}
-  .thumbs{grid-template-columns:repeat(3,1fr);gap:8px}
-  .thumb button{width:25px;height:25px;top:4px;right:4px}
-  .counter{font-size:12.5px}
-
-  .info-box{font-size:13px;padding:13px;line-height:1.7}
-  .agree{font-size:14px;gap:9px}
-  .agree input{width:20px;height:20px}
-  .summary-row{font-size:13.5px}
-  .total-card{padding:14px 15px;border-radius:16px}
-  .total-card .amt{font-size:22px}
-
-  .footer{padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px))}
-  .footer-row,.footer-actions{width:100%;max-width:none;gap:8px}
-  .nav-btn,.cta{min-height:52px;padding:13px 14px;font-size:15px;border-radius:13px}
-  .nav-btn{min-width:108px}
-  .footer-actions{gap:8px}
 }
-
-/* Fallback khusus Google Apps Script / iframe */
-.mobile-ui .app{width:100%;max-width:none;margin:0;padding:14px 12px 200px}
-.mobile-ui .brand-header{gap:8px;margin-bottom:5px}
-.mobile-ui .brand-left-logo{width:48px;height:48px}
-.mobile-ui .brand-right-logo{width:min(44vw,154px);height:48px}
-.mobile-ui .tagline{font-size:13.5px;margin-bottom:13px;line-height:1.55}
-.mobile-ui .price-card{padding:14px;border-radius:17px;margin-bottom:12px}
-.mobile-ui .price-title{font-size:16px;margin-bottom:10px}
-.mobile-ui .price-item{padding:11px;border-radius:13px}
-.mobile-ui .price-item .amount{font-size:20px}
-.mobile-ui .progress-wrap{padding:11px;border-radius:16px;margin-bottom:13px}
-.mobile-ui .progress-title,.mobile-ui .progress-text{font-size:12.5px}
-.mobile-ui .stage-dot{padding:9px 4px;font-size:11px}
-.mobile-ui .card{padding:15px;border-radius:18px;margin-bottom:12px}
-.mobile-ui .card h2{font-size:16px;margin-bottom:10px}
-.mobile-ui .field-grid.two{grid-template-columns:1fr}
-.mobile-ui label.field-label{font-size:14px}
-.mobile-ui input[type=text],.mobile-ui input[type=tel],.mobile-ui input[type=date],.mobile-ui textarea{
-  width:100%;min-height:52px;padding:13px 14px;font-size:17px;border-radius:13px
-}
-.mobile-ui textarea{min-height:110px}
-.mobile-ui .seg label{min-height:50px;padding:13px 8px;font-size:14.5px}
-.mobile-ui .carousel{display:flex;gap:10px;overflow-x:auto;overflow-y:visible;padding:10px 4px 10px 2px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.mobile-ui .carousel::-webkit-scrollbar{display:none}
-.mobile-ui .tpl-card{flex:0 0 auto;width:38vw;max-width:150px;min-width:120px;scroll-snap-align:start}
-.mobile-ui .tpl-inner{height:auto;aspect-ratio:4 / 5;padding:0;border-radius:15px;font-size:14px}
-.mobile-ui .check{width:24px;height:24px;font-size:12px}
-.mobile-ui .tpl-zoom{width:26px;height:26px}
-.mobile-ui .upload-zone{min-height:80px;padding:19px 12px;font-size:14px}
-.mobile-ui .thumbs{grid-template-columns:repeat(3,1fr);gap:8px}
-.mobile-ui .info-box{font-size:13px;padding:13px;line-height:1.7}
-.mobile-ui .agree{font-size:14px}
-.mobile-ui .summary-row{font-size:13.5px}
-.mobile-ui .total-card{padding:14px 15px;border-radius:16px}
-.mobile-ui .total-card .amt{font-size:22px}
-.mobile-ui .footer{padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px))}
-.mobile-ui .footer-row,.mobile-ui .footer-actions{width:100%;max-width:none;gap:8px}
-.mobile-ui .nav-btn,.mobile-ui .cta{min-height:52px;padding:13px 14px;font-size:15px;border-radius:13px}
-.mobile-ui .nav-btn{min-width:108px}
-.mobile-ui .price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-
 @media (max-width:360px){
-  .app{padding-left:9px;padding-right:9px}
-  .brand-right-logo{width:132px;height:44px}
   .price-grid{grid-template-columns:1fr}
-  .stage-dot{font-size:10.5px;padding-left:3px;padding-right:3px}
-  .tpl-card{width:42vw;min-width:108px}
-  .tpl-inner{aspect-ratio:4 / 5}
-  .nav-btn{min-width:104px}
-  .nav-btn,.cta{font-size:14px}
 }
-@media (max-width:360px){
-  .mobile-ui .app{padding-left:9px;padding-right:9px}
-  .mobile-ui .brand-right-logo{width:132px;height:44px}
-  .mobile-ui .price-grid{grid-template-columns:1fr}
-  .mobile-ui .tpl-card{width:42vw;min-width:108px}
-  .mobile-ui .tpl-inner{aspect-ratio:4 / 5}
-}
-/* ===== GitHub Pages / static version ===== */
-.carousel{
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  max-height:430px;
-  overflow-y:auto;
-  overflow-x:hidden;
-  padding:10px 6px 10px 2px;
-  scrollbar-width:thin;
-}
-@media (max-width:700px){
-  .carousel{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    max-height:460px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    padding:10px 2px;
-  }
-  .tpl-card{
-    width:auto;
-    min-width:0;
-  }
-}
-@media (max-width:360px){
-  .carousel{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-  .tpl-card{
-    width:auto;
-    min-width:0;
-  }
-}
-.template-scroll-note{
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  align-items:center;
-}
-.static-note{
-  margin-top:9px;
-  padding:9px 11px;
-  border-radius:11px;
-  background:#fff7e9;
-  border:1px solid #f8e2bd;
-  color:#7b6248;
-  font-size:11.5px;
-  line-height:1.5;
-}
-.file-name-list{
-  margin-top:8px;
-  padding:8px 10px;
-  border-radius:11px;
-  background:#faf7ff;
-  border:1px solid #e7defd;
-  color:#5c4ca3;
-  font-size:11.5px;
-  line-height:1.5;
-  max-height:90px;
-  overflow:auto;
-}
-
 </style>
 </head>
 <body>
-<div class="banner" id="banner"></div>
+<div class="banner" id="banner" role="alert"></div>
 
 <div class="tpl-preview-overlay" id="tplPreviewOverlay">
   <div class="tpl-preview-inner">
@@ -483,316 +151,177 @@ input.invalid,.invalid textarea,.invalid input{border-color:var(--danger)!import
     <img class="brand-right-logo" src="assets/logo-right.png" alt="Logo PNP.BD" onerror="this.style.display='none'">
   </header>
 
-  <p class="tagline">
-    Isi data, pilih template, upload bahan untuk dihitung, lalu kirim pesanan langsung ke WhatsApp.
-  </p>
+  <p class="tagline">Isi data dan pilih template, lalu kirim pesanan ke WhatsApp. Foto bahan, referensi, dan ketentuan photobooth dikirim langsung lewat WhatsApp setelah pesan terkirim.</p>
 
-  <section class="price-card" aria-label="Price list">
+  <section class="price-card" aria-label="Daftar harga">
     <div class="price-title">💰 Price List</div>
     <div class="price-grid">
       <div class="price-item">
         <div class="name">Template Tersedia</div>
-        <div class="amount">Rp 25.000</div>
+        <div class="amount" id="priceTplTxt"></div>
         <div class="sub">Pilih dari koleksi template</div>
       </div>
       <div class="price-item">
         <div class="name">Custom Template</div>
-        <div class="amount">Rp 35.000</div>
+        <div class="amount" id="priceCustomTxt"></div>
         <div class="sub">Desain sesuai referensi</div>
       </div>
     </div>
-    <div class="price-note">Harga mengikuti pilihan desain yang kamu ambil.</div>
+    <div class="price-note">Ditambah biaya finalisasi <b id="finalTxt"></b> per pesanan.</div>
   </section>
 
-  <div class="progress-wrap">
-    <div class="progress-top">
-      <div class="progress-title" id="progressTitle">1. Data Pemesanan</div>
-      <div class="progress-text" id="progressText">1 dari 3</div>
-    </div>
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="stage-dots">
-      <div class="stage-dot active" data-dot="1">Data Pemesanan</div>
-      <div class="stage-dot" data-dot="2">Bahan & Detail</div>
-      <div class="stage-dot" data-dot="3">Ketentuan & Kirim</div>
-    </div>
-  </div>
-
-  <form id="orderForm">
-    <div class="stage active" data-step="1">
-      <div class="card highlight">
-        <h2><span class="n">1</span>Data Pemesan</h2>
-        <p class="section-note">Isi data dasar pemesanan terlebih dahulu.</p>
-
-        <div class="field-grid">
-          <input type="hidden" id="orderId" value="">
-
-          <div class="field-grid two">
-            <div class="field-wrap">
-              <label class="field-label" for="nama">Nama</label>
-              <input type="text" id="nama" placeholder="Nama kamu" autocomplete="name">
-              <div class="err-msg">Nama wajib diisi</div>
-            </div>
-
-            <div class="field-wrap">
-              <label class="field-label" for="noWa">Nomor WhatsApp</label>
-              <input type="tel" id="noWa" placeholder="08xxxxxxxxxx" inputmode="tel" autocomplete="tel">
-              <div class="err-msg">Nomor WhatsApp wajib diisi (minimal 4 digit)</div>
-              <div class="hint">ID pesanan otomatis: <b id="orderIdPreview">PNP----</b></div>
-            </div>
-          </div>
-
+  <form id="orderForm" novalidate>
+    <div class="card highlight">
+      <h2><span class="n">1</span>Data Pemesan</h2>
+      <p class="section-note">Isi data dasar pemesanan.</p>
+      <div class="field-grid">
+        <div class="field-grid two">
           <div class="field-wrap">
-            <label class="field-label" for="tglAcara">Tanggal Acara / Dibutuhkan</label>
-            <input type="date" id="tglAcara">
-            <div class="err-msg">Tanggal wajib diisi</div>
+            <label class="field-label" for="nama">Nama</label>
+            <input type="text" id="nama" placeholder="Nama kamu" autocomplete="name">
+            <div class="err-msg">Nama wajib diisi</div>
           </div>
+          <div class="field-wrap">
+            <label class="field-label" for="noWa">Nomor WhatsApp</label>
+            <input type="tel" id="noWa" placeholder="08xxxxxxxxxx" inputmode="tel" autocomplete="tel">
+            <div class="err-msg">Nomor WhatsApp wajib diisi (minimal 4 digit)</div>
+            <div class="hint">ID pesanan otomatis: <b id="orderIdPreview">PNP----</b></div>
+          </div>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label" for="tglAcara">Tanggal Acara / Dibutuhkan</label>
+          <input type="date" id="tglAcara">
+          <div class="err-msg">Tanggal wajib diisi</div>
         </div>
       </div>
     </div>
 
-    <div class="stage" data-step="2">
-      <div class="card highlight">
-        <h2><span class="n">2</span>Pilih Template</h2>
-        <p class="section-note">Pilih template dari koleksi PNP atau gunakan custom template.</p>
+    <div class="card highlight">
+      <h2><span class="n">2</span>Pilih Template</h2>
+      <p class="section-note">Pilih template dari koleksi PNP atau gunakan custom template.</p>
 
-        <div class="seg">
-          <label>
-            <input type="radio" name="tplType" value="existing" checked>
-            <span>Template PNP</span>
-          </label>
-          <label>
-            <input type="radio" name="tplType" value="custom">
-            <span>Custom Template</span>
-          </label>
-        </div>
+      <div class="seg">
+        <label>
+          <input type="radio" name="tplType" value="existing" checked>
+          <span>Template PNP</span>
+        </label>
+        <label>
+          <input type="radio" name="tplType" value="custom">
+          <span>Custom Template</span>
+        </label>
+      </div>
 
-        <div id="existingWrap">
-          <div class="template-scroll-note">
-            <p class="hint" style="margin:10px 0 6px">Tampilkan 2 baris, scroll ke bawah untuk template lainnya.</p>
-          </div>
-          <div class="carousel" id="carousel"></div>
-          <div class="field-wrap" id="tplPickWrap">
-            <div class="err-msg">Pilih salah satu template dulu ya</div>
-          </div>
-        </div>
-
-        <div id="customWrap" style="display:none">
-          <p class="hint" style="margin:10px 0">
-            Upload contoh gambar sebagai referensi desain custom (opsional, maks <span id="maxRefTxt"></span>).
-          </p>
-          <div class="upload-zone" id="refZone"><b>+ Upload referensi</b><br>PNG / JPG</div>
-          <input type="file" id="refInput" accept="image/*" multiple hidden>
-          <div class="thumbs" id="refThumbs"></div>
-          <div class="counter" id="refCounter"></div>
-          <div class="static-note">
-            File referensi hanya digunakan di browser untuk melihat dan menghitung lampiran.
-            Untuk benar-benar mengirim filenya, lampirkan manual lewat WhatsApp.
-          </div>
+      <div id="existingWrap">
+        <p class="hint" style="margin:10px 0 6px">Scroll ke bawah untuk melihat template lainnya. Ketuk ikon kaca pembesar untuk memperbesar.</p>
+        <div class="carousel" id="carousel"></div>
+        <div class="field-wrap" id="tplPickWrap">
+          <div class="err-msg">Pilih salah satu template dulu ya</div>
         </div>
       </div>
 
-      <div class="card">
-        <h2><span class="n">3</span>Upload Foto / Bahan</h2>
-        <p class="section-note">Masukkan foto yang akan diedit. Foto hanya dipreview di halaman ini.</p>
-
-        <div class="field-wrap">
-          <div class="upload-zone" id="matZone">
-            <b>+ Upload foto</b><br>
-            PNG / JPG · maksimal <span id="maxMaterialTxt"></span> foto
-          </div>
-          <input type="file" id="matInput" accept="image/*" multiple hidden>
-          <div class="err-msg">Upload minimal 1 foto bahan</div>
+      <div id="customWrap" class="custom-box" style="display:none">
+        <div class="wa-box">
+          <b>Referensi desain dikirim lewat WhatsApp.</b><br>
+          Tidak perlu upload di sini. Setelah menekan tombol kirim, lampirkan gambar referensi (maksimal <span id="maxRefTxt"></span>) langsung di chat WhatsApp.
         </div>
-
-        <div class="thumbs" id="matThumbs"></div>
-        <div class="counter" id="matCounter"></div>
-        <div class="file-name-list" id="matFileNames" style="display:none"></div>
-
-        <div class="static-note">
-          Karena website ini dijalankan dari GitHub Pages, foto tidak bisa otomatis di-upload ke server/Google Drive.
-          Nama file dan jumlah foto akan dimasukkan ke pesan WhatsApp; foto aslinya tetap dilampirkan manual di WhatsApp.
-        </div>
-      </div>
-
-      <div class="card soft-purple">
-        <h2><span class="n">4</span>Request Perubahan Teks</h2>
-        <textarea id="reqText" placeholder="Contoh: teks 'Happy Birthday' diganti jadi 'Selamat Ulang Tahun Kayla'"></textarea>
-        <p class="hint">Opsional — kosongkan kalau tidak ada perubahan teks.</p>
       </div>
     </div>
 
-    <div class="stage" data-step="3">
-      <div class="card soft-purple">
-        <h2><span class="n">5</span>Syarat & Ketentuan dari Photo Booth</h2>
-        <p class="section-note">Kalau ada ketentuan khusus dari pihak photo booth, isi sebagai teks atau pilih file.</p>
+    <div class="card soft-purple">
+      <h2><span class="n">3</span>Request Perubahan Teks</h2>
+      <textarea id="reqText" placeholder="Contoh: teks 'Happy Birthday' diganti jadi 'Selamat Ulang Tahun Kayla'"></textarea>
+      <p class="hint">Opsional. Kosongkan kalau tidak ada perubahan teks.</p>
+    </div>
 
-        <div class="seg">
-          <label>
-            <input type="radio" name="skMode" value="text" checked>
-            <span>Teks</span>
-          </label>
-          <label>
-            <input type="radio" name="skMode" value="file">
-            <span>Upload File</span>
-          </label>
-        </div>
-
-        <div id="skTextWrap">
-          <textarea id="skText" placeholder="Tulis syarat & ketentuan photo booth di sini..."></textarea>
-        </div>
-
-        <div id="skFileWrap" style="display:none">
-          <div class="upload-zone" id="skZone"><b>+ Upload file</b><br>Gambar, PDF, atau dokumen</div>
-          <input type="file" id="skInput" accept="image/*,.pdf,.doc,.docx" hidden>
-          <div class="file-chip" id="skFileChip"></div>
-        </div>
-
-        <p class="hint">Opsional — isi salah satu: teks S&amp;K atau pilih filenya.</p>
+    <div class="card">
+      <h2><span class="n">4</span>Foto Bahan & Ketentuan Photobooth</h2>
+      <div class="wa-box">
+        <b>Dikirim langsung lewat WhatsApp setelah form ini.</b>
+        <ul>
+          <li><b>Foto bahan</b> yang mau diedit (maksimal <span id="maxMaterialTxt"></span> foto).</li>
+          <li><b>Syarat &amp; ketentuan dari pihak photobooth</b>, kalau ada. Bisa berupa teks, gambar, PDF, atau dokumen.</li>
+          <li class="only-custom" style="display:none"><b>Gambar referensi</b> untuk custom template.</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="card">
-        <h2><span class="n">6</span>Ketentuan & Konfirmasi</h2>
-
-        <div class="info-box">
-          <p><b>Revisi:</b> Gratis maksimal 2x. Revisi ke-3 dan seterusnya dikenakan biaya Rp5.000/revisi. Kalau revisi diminta setelah file final dikirim, dikenakan biaya tambahan Rp5.000.</p>
-          <p><b>Penting, baca dulu:</b> Yang kamu pesan di sini adalah <b>file template desain digital</b> saja — bukan unit fisik photobooth, bukan jasa cetak foto, dan bukan sewa alat. File hasil dikirim dalam format digital (JPG/PNG) siap pakai sendiri.</p>
-        </div>
-
-        <div class="field-wrap">
-          <div class="agree">
-            <input type="checkbox" id="agreeOurTerms">
-            <label for="agreeOurTerms">Saya sudah membaca dan setuju dengan ketentuan di atas.</label>
-          </div>
-          <div class="err-msg" style="margin-left:28px">Kamu perlu menyetujui ketentuan ini dulu</div>
-        </div>
+    <div class="card">
+      <h2><span class="n">5</span>Ketentuan & Konfirmasi</h2>
+      <div class="info-box">
+        <p><b>Revisi:</b> Gratis maksimal 2x. Revisi ke-3 dan seterusnya dikenakan biaya Rp5.000/revisi. Kalau revisi diminta setelah file final dikirim, dikenakan biaya tambahan Rp5.000.</p>
+        <p><b>Penting, baca dulu:</b> Yang kamu pesan di sini adalah <b>file template desain digital</b> saja, bukan unit fisik photobooth, bukan jasa cetak foto, dan bukan sewa alat. File hasil dikirim dalam format digital (JPG/PNG) siap pakai sendiri.</p>
       </div>
-
-      <div class="total-card">
-        <div>
-          <div class="label">Total Pesanan</div>
-          <div class="hint" style="margin:2px 0 0">Harga mengikuti pilihan desain.</div>
+      <div class="field-wrap">
+        <div class="agree">
+          <input type="checkbox" id="agreeOurTerms">
+          <label for="agreeOurTerms">Saya sudah membaca dan setuju dengan ketentuan di atas.</label>
         </div>
-        <div class="amt" id="totalAmt">Rp 25.000</div>
+        <div class="err-msg" style="margin-left:30px">Kamu perlu menyetujui ketentuan ini dulu</div>
       </div>
+    </div>
 
-      <div class="summary" id="summary">
-        <div class="summary-row"><span>Nama</span><b id="summaryNama">-</b></div>
-        <div class="summary-row"><span>Tanggal</span><b id="summaryTanggal">-</b></div>
-        <div class="summary-row"><span>Desain</span><b id="summaryTemplate">-</b></div>
-        <div class="summary-row"><span>Foto bahan</span><b id="summaryFoto">0</b></div>
-        <div class="summary-row"><span>Referensi</span><b id="summaryRef">0</b></div>
-        <div class="summary-row"><span>ID Pesanan</span><b id="summaryOrderId">-</b></div>
-      </div>
+    <div class="total-card" aria-live="polite">
+      <div class="total-row"><span id="rowDesignLabel">Template PNP</span><b id="rowDesign">-</b></div>
+      <div class="total-row"><span>Biaya finalisasi</span><b id="rowFinal">-</b></div>
+      <div class="total-main"><span class="label">Total Pesanan</span><span class="amt" id="totalAmt">-</span></div>
+    </div>
+
+    <div class="summary">
+      <div class="summary-row"><span>Nama</span><b id="summaryNama">-</b></div>
+      <div class="summary-row"><span>Tanggal</span><b id="summaryTanggal">-</b></div>
+      <div class="summary-row"><span>Desain</span><b id="summaryTemplate">-</b></div>
+      <div class="summary-row"><span>ID Pesanan</span><b id="summaryOrderId">-</b></div>
     </div>
   </form>
-
-  <div class="status" id="status"></div>
 </div>
 
 <div class="footer">
-  <div class="footer-row" id="navRow">
-    <button type="button" class="nav-btn" id="backBtn">← Kembali</button>
-    <button type="button" class="cta" id="nextBtn">Lanjut →</button>
-  </div>
-
-  <div class="footer-actions" id="footerActions" style="display:none">
-    <button type="button" class="cta" id="submitBtn">Buat Pesan WhatsApp →</button>
-    <a href="#" target="_blank" rel="noopener" class="cta secondary disabled" id="waLink">Kirim ke WhatsApp →</a>
+  <div class="footer-inner">
+    <button type="button" class="cta" id="submitBtn">Kirim Pesanan ke WhatsApp</button>
   </div>
 </div>
 
 <script>
 /* =========================================================
-   KONFIGURASI GITHUB PAGES
+   KONFIGURASI
    ========================================================= */
 const CONFIG = {
-  // Nomor WhatsApp admin, format internasional tanpa tanda +
-  waNumber: '6282343511373',
-
-  // Harga mengikuti HTML yang lu kirim sekarang
-  priceTemplate: 25000,
-  priceCustom: 35000,
-
-  // Jumlah file maksimum yang bisa dipilih di browser
-  maxMaterialPhotos: 25,
+  waNumber: '6282343511373',     // format internasional tanpa +
+  priceTemplate: 20000,          // harga template tersedia
+  priceCustom: 25000,            // harga custom template
+  finalFee: 3000,                // biaya finalisasi per pesanan
+  maxMaterialPhotos: 25,         // info untuk pelanggan (dikirim via WA)
   maxRefPhotos: 5,
-
-  // Folder template di repository GitHub
   templateFolder: 'templates',
   templateExtension: 'jpg',
-
-  // Jumlah template
   templateCount: 20,
-
-  // Nama prefix template
   templatePrefix: 'PNP'
 };
 
 let TEMPLATES = [];
-const TOTAL_STEPS = 3;
-let currentStep = 1;
 let orderId = '';
-
-let materialFiles = [];
-let refFiles = [];
-let skFile = null;
 
 const $ = (id) => document.getElementById(id);
 const rupiah = (n) => 'Rp ' + Number(n).toLocaleString('id-ID');
+const isCustom = () => document.querySelector('input[name=tplType]:checked')?.value === 'custom';
+const designPrice = () => isCustom() ? CONFIG.priceCustom : CONFIG.priceTemplate;
+const totalPrice = () => designPrice() + CONFIG.finalFee;
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-function applyMobileRuntime(){
-  const width = Math.min(
-    Number(window.innerWidth) || 9999,
-    Number(window.screen && window.screen.width) || 9999
-  );
-  document.documentElement.classList.toggle('mobile-ui', width <= 700);
-}
-window.addEventListener('resize', applyMobileRuntime, {passive:true});
-applyMobileRuntime();
-
-/* =========================================================
-   HELPER
-   ========================================================= */
-function escapeHtml(value){
-  return String(value ?? '').replace(/[&<>"']/g, ch => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  })[ch]);
+function escapeHtml(v){
+  return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 }
 
-function normalizeWaNumber(raw){
-  const digits = String(raw || '').replace(/\D/g, '');
-  if(!digits) return '';
-  if(digits.startsWith('62')) return digits;
-  if(digits.startsWith('0')) return '62' + digits.slice(1);
-  return '62' + digits;
-}
-
-function generateOrderId(){
-  const digits = String($('noWa').value || '').replace(/\D/g, '');
-  if(digits.length < 4) return '';
-  return 'PNP' + digits.slice(-4);
+function prettyDate(v){
+  if(!v) return '-';
+  const p = v.split('-');
+  return p.length === 3 ? p[2] + '-' + p[1] + '-' + p[0] : v;
 }
 
 function refreshOrderId(){
-  orderId = generateOrderId();
-  $('orderId').value = orderId;
+  const digits = String($('noWa').value || '').replace(/\D/g, '');
+  orderId = digits.length >= 4 ? 'PNP' + digits.slice(-4) : '';
   $('orderIdPreview').textContent = orderId || 'PNP----';
   $('summaryOrderId').textContent = orderId || '-';
-}
-
-function buildCustomerWaLink(){
-  refreshOrderId();
-  const number = normalizeWaNumber($('noWa').value.trim());
-  if(!number || !orderId) return '';
-  const text = 'halo kak mau konfirmasi untuk pesanan ini (' + orderId + ')';
-  return 'https://wa.me/' + number + '?text=' + encodeURIComponent(text);
 }
 
 function showBanner(msg){
@@ -802,27 +331,9 @@ function showBanner(msg){
   setTimeout(() => b.classList.remove('show'), 3500);
 }
 
-function setStatus(msg){
-  const s = $('status');
-  s.textContent = msg;
-  s.classList.toggle('show', !!msg);
-}
-
 function getSelectedTemplate(){
-  const choice = document.querySelector('input[name=tplChoice]:checked');
-  if(!choice) return null;
-  return TEMPLATES.find(t => String(t.id) === String(choice.value)) || null;
-}
-
-function fileNames(files){
-  return files.map(file => file.name);
-}
-
-function prettyDate(value){
-  if(!value) return '-';
-  const parts = value.split('-');
-  if(parts.length !== 3) return value;
-  return parts[2] + '-' + parts[1] + '-' + parts[0];
+  const c = document.querySelector('input[name=tplChoice]:checked');
+  return c ? TEMPLATES.find(t => t.id === c.value) || null : null;
 }
 
 /* =========================================================
@@ -830,535 +341,210 @@ function prettyDate(value){
    ========================================================= */
 function openTplPreview(src, name){
   $('tplPreviewImg').src = src;
-  $('tplPreviewImg').alt = name ? ('Preview ' + name) : 'Preview template';
-  $('tplPreviewCaption').textContent = name || '';
+  $('tplPreviewImg').alt = 'Preview ' + name;
+  $('tplPreviewCaption').textContent = name;
   $('tplPreviewOverlay').classList.add('show');
   document.body.style.overflow = 'hidden';
 }
-
 function closeTplPreview(){
   $('tplPreviewOverlay').classList.remove('show');
   document.body.style.overflow = '';
   $('tplPreviewImg').src = '';
 }
-
 $('tplPreviewClose').addEventListener('click', closeTplPreview);
-
-$('tplPreviewOverlay').addEventListener('click', (e) => {
-  if(e.target.id === 'tplPreviewOverlay'){
-    closeTplPreview();
-  }
-});
-
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape'){
-    closeTplPreview();
-  }
-});
+$('tplPreviewOverlay').addEventListener('click', e => { if(e.target.id === 'tplPreviewOverlay') closeTplPreview(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeTplPreview(); });
 
 /* =========================================================
-   TEMPLATE DARI FOLDER GITHUB
-   Struktur:
-   templates/PNP1.jpg
-   templates/PNP2.jpg
-   ...
-   templates/PNP20.jpg
+   TEMPLATE DARI FOLDER GITHUB (templates/PNP1.jpg ... PNP20.jpg)
    ========================================================= */
-function buildTemplateList(){
-  return Array.from(
-    {length: CONFIG.templateCount},
-    (_, index) => {
-      const number = index + 1;
-      const name = CONFIG.templatePrefix + number;
-      return {
-        id: String(number),
-        name,
-        imageUrl: CONFIG.templateFolder + '/' + name + '.' + CONFIG.templateExtension
-      };
-    }
-  );
-}
-
 function renderTemplates(){
-  const carouselEl = $('carousel');
-  carouselEl.innerHTML = '';
-
-  if(!TEMPLATES.length){
-    carouselEl.innerHTML =
-      '<div class="hint" style="width:100%;text-align:center;padding:16px">Template PNP belum tersedia.</div>';
-    return;
-  }
+  const el = $('carousel');
+  el.innerHTML = '';
 
   TEMPLATES.forEach(t => {
     const label = document.createElement('label');
     label.className = 'tpl-card';
-
     label.innerHTML =
       '<input type="radio" name="tplChoice" value="' + escapeHtml(t.id) + '" class="tpl-radio">' +
       '<div class="tpl-inner">' +
         '<img class="tpl-image" src="' + escapeHtml(t.imageUrl) + '" alt="' + escapeHtml(t.name) + '" loading="lazy">' +
         '<div class="tpl-image-fallback">Gambar template<br>tidak dapat dimuat</div>' +
         '<button type="button" class="tpl-zoom" aria-label="Perbesar preview ' + escapeHtml(t.name) + '">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
-            '<circle cx="11" cy="11" r="7"></circle>' +
-            '<line x1="21" y1="21" x2="16.65" y2="16.65"></line>' +
-          '</svg>' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' +
         '</button>' +
         '<div class="tpl-name">' + escapeHtml(t.name) + '</div>' +
         '<span class="check">✓</span>' +
       '</div>';
 
-    const img = label.querySelector('.tpl-image');
-
-    img.addEventListener('error', function(){
+    label.querySelector('.tpl-image').addEventListener('error', () => {
       label.querySelector('.tpl-inner').classList.add('tpl-image-error');
     });
-
     label.querySelector('.tpl-radio').addEventListener('change', () => {
+      $('tplPickWrap').classList.remove('invalid');
       updateSummary();
     });
-
-    label.querySelector('.tpl-zoom').addEventListener('click', function(e){
+    label.querySelector('.tpl-zoom').addEventListener('click', e => {
       e.preventDefault();
       e.stopPropagation();
       openTplPreview(t.imageUrl, t.name);
     });
-
-    carouselEl.appendChild(label);
+    el.appendChild(label);
   });
 }
 
 function loadTemplates(){
-  TEMPLATES = buildTemplateList();
+  TEMPLATES = Array.from({length: CONFIG.templateCount}, (_, i) => {
+    const name = CONFIG.templatePrefix + (i + 1);
+    return {id: String(i + 1), name, imageUrl: CONFIG.templateFolder + '/' + name + '.' + CONFIG.templateExtension};
+  });
   renderTemplates();
-  updateSummary();
 }
 
 /* =========================================================
-   PILIH JENIS TEMPLATE
+   JENIS TEMPLATE
    ========================================================= */
 document.querySelectorAll('input[name=tplType]').forEach(radio => {
   radio.addEventListener('change', () => {
     if(!radio.checked) return;
-
-    const isCustom = radio.value === 'custom';
-
-    $('existingWrap').style.display = isCustom ? 'none' : 'block';
-    $('customWrap').style.display = isCustom ? 'block' : 'none';
-    $('totalAmt').textContent = rupiah(
-      isCustom ? CONFIG.priceCustom : CONFIG.priceTemplate
-    );
-
+    const custom = isCustom();
+    $('existingWrap').style.display = custom ? 'none' : 'block';
+    $('customWrap').style.display = custom ? 'block' : 'none';
+    document.querySelectorAll('.only-custom').forEach(el => { el.style.display = custom ? '' : 'none'; });
+    if(custom) $('tplPickWrap').classList.remove('invalid');
     updateSummary();
   });
 });
 
 /* =========================================================
-   FILE UPLOAD LOCAL / PREVIEW SAJA
-   ========================================================= */
-function wireUpload(zoneEl, inputEl, thumbsEl, counterEl, store, max, namesEl){
-  zoneEl.addEventListener('click', () => inputEl.click());
-
-  inputEl.addEventListener('change', (e) => {
-    const incoming = Array.from(e.target.files || []);
-
-    for(const f of incoming){
-      if(store.length >= max) break;
-      store.push(f);
-    }
-
-    inputEl.value = '';
-    render();
-  });
-
-  function render(){
-    thumbsEl.innerHTML = '';
-
-    store.forEach((file, index) => {
-      const url = URL.createObjectURL(file);
-
-      const div = document.createElement('div');
-      div.className = 'thumb';
-
-      div.innerHTML =
-        '<img src="' + url + '" alt="' + escapeHtml(file.name) + '">' +
-        '<button type="button" aria-label="Hapus ' + escapeHtml(file.name) + '">✕</button>';
-
-      div.querySelector('button').addEventListener('click', () => {
-        URL.revokeObjectURL(url);
-        store.splice(index, 1);
-        render();
-        updateSummary();
-      });
-
-      thumbsEl.appendChild(div);
-    });
-
-    counterEl.innerHTML =
-      '<b>' + store.length + '</b> / ' + max + ' foto terpilih';
-
-    if(namesEl){
-      if(store.length){
-        namesEl.style.display = 'block';
-        namesEl.innerHTML =
-          '<b>File terpilih:</b><br>' +
-          store.map((f, i) => (i + 1) + '. ' + escapeHtml(f.name)).join('<br>');
-      }else{
-        namesEl.style.display = 'none';
-        namesEl.innerHTML = '';
-      }
-    }
-  }
-
-  return render;
-}
-
-const renderMat = wireUpload(
-  $('matZone'),
-  $('matInput'),
-  $('matThumbs'),
-  $('matCounter'),
-  materialFiles,
-  CONFIG.maxMaterialPhotos,
-  $('matFileNames')
-);
-
-const renderRef = wireUpload(
-  $('refZone'),
-  $('refInput'),
-  $('refThumbs'),
-  $('refCounter'),
-  refFiles,
-  CONFIG.maxRefPhotos,
-  null
-);
-
-renderMat();
-renderRef();
-
-/* =========================================================
-   SYARAT & KETENTUAN FILE
-   ========================================================= */
-document.querySelectorAll('input[name=skMode]').forEach(radio => {
-  radio.addEventListener('change', () => {
-    if(!radio.checked) return;
-
-    const isText = radio.value === 'text';
-
-    $('skTextWrap').style.display = isText ? 'block' : 'none';
-    $('skFileWrap').style.display = isText ? 'none' : 'block';
-  });
-});
-
-$('skZone').addEventListener('click', () => $('skInput').click());
-
-$('skInput').addEventListener('change', (e) => {
-  skFile = e.target.files[0] || null;
-  e.target.value = '';
-  renderSkChip();
-});
-
-function renderSkChip(){
-  const chip = $('skFileChip');
-
-  if(skFile){
-    chip.classList.add('show');
-
-    chip.innerHTML =
-      '<span>📎 ' + escapeHtml(skFile.name) + '</span>' +
-      '<button type="button">✕</button>';
-
-    chip.querySelector('button').addEventListener('click', () => {
-      skFile = null;
-      renderSkChip();
-    });
-  }else{
-    chip.classList.remove('show');
-    chip.innerHTML = '';
-  }
-}
-
-/* =========================================================
-   SUMMARY
+   SUMMARY & TOTAL
    ========================================================= */
 function updateSummary(){
   $('summaryNama').textContent = $('nama').value.trim() || '-';
   $('summaryTanggal').textContent = prettyDate($('tglAcara').value);
 
-  const type = document.querySelector('input[name=tplType]:checked')?.value;
-
-  if(type === 'custom'){
+  if(isCustom()){
     $('summaryTemplate').textContent = 'Custom Template';
-    $('summaryRef').textContent = refFiles.length + ' foto';
+    $('rowDesignLabel').textContent = 'Custom Template';
   }else{
     const tpl = getSelectedTemplate();
     $('summaryTemplate').textContent = tpl ? tpl.name : '-';
-    $('summaryRef').textContent = '-';
+    $('rowDesignLabel').textContent = 'Template PNP';
   }
 
-  $('summaryFoto').textContent = materialFiles.length + ' foto';
-
+  $('rowDesign').textContent = rupiah(designPrice());
+  $('rowFinal').textContent = rupiah(CONFIG.finalFee);
+  $('totalAmt').textContent = rupiah(totalPrice());
   refreshOrderId();
-
-  const total =
-    type === 'custom' ? CONFIG.priceCustom : CONFIG.priceTemplate;
-
-  $('totalAmt').textContent = rupiah(total);
 }
 
 /* =========================================================
-   NAVIGASI STEP
+   VALIDASI
    ========================================================= */
-function showStep(n){
-  currentStep = n;
-
-  document.querySelectorAll('.stage').forEach(stage => {
-    stage.classList.toggle('active', Number(stage.dataset.step) === n);
-  });
-
-  const titles = {
-    1: '1. Data Pemesanan',
-    2: '2. Bahan & Detail',
-    3: '3. Ketentuan & Kirim'
-  };
-
-  $('progressTitle').textContent = titles[n];
-  $('progressText').textContent = n + ' dari ' + TOTAL_STEPS;
-  $('progressFill').style.width = (n / TOTAL_STEPS * 100) + '%';
-
-  document.querySelectorAll('.stage-dot').forEach(dot => {
-    const d = Number(dot.dataset.dot);
-    dot.classList.toggle('active', d === n);
-    dot.classList.toggle('done', d < n);
-  });
-
-  $('backBtn').style.visibility = n === 1 ? 'hidden' : 'visible';
-
-  const isLast = n === TOTAL_STEPS;
-
-  $('navRow').style.display = isLast ? 'none' : 'flex';
-  $('footerActions').style.display = isLast ? 'flex' : 'none';
-
-  updateSummary();
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
-
-function markInvalid(el, invalid){
+function setInvalid(el, invalid){
   el.closest('.field-wrap')?.classList.toggle('invalid', invalid);
 }
 
-function validateStep(n){
-  let ok = true;
+function validateAll(){
+  const bad = [];
+  const nama = $('nama').value.trim();
+  const waDigits = $('noWa').value.replace(/\D/g, '');
 
-  if(n === 1){
-    const nama = $('nama').value.trim();
-    const noWa = $('noWa').value.trim();
-    const waDigits = noWa.replace(/\D/g, '');
-    const tgl = $('tglAcara').value;
+  setInvalid($('nama'), !nama);
+  if(!nama) bad.push($('nama'));
 
-    markInvalid($('nama'), !nama);
-    if(!nama) ok = false;
+  setInvalid($('noWa'), waDigits.length < 4);
+  if(waDigits.length < 4) bad.push($('noWa'));
 
-    markInvalid($('noWa'), waDigits.length < 4);
-    if(waDigits.length < 4) ok = false;
+  setInvalid($('tglAcara'), !$('tglAcara').value);
+  if(!$('tglAcara').value) bad.push($('tglAcara'));
 
-    markInvalid($('tglAcara'), !tgl);
-    if(!tgl) ok = false;
+  const needTpl = !isCustom() && !document.querySelector('input[name=tplChoice]:checked');
+  $('tplPickWrap').classList.toggle('invalid', needTpl);
+  if(needTpl) bad.push($('tplPickWrap'));
 
-  }else if(n === 2){
-    const tplType = document.querySelector('input[name=tplType]:checked')?.value;
+  const agree = $('agreeOurTerms').checked;
+  setInvalid($('agreeOurTerms'), !agree);
+  if(!agree) bad.push($('agreeOurTerms'));
 
-    if(tplType === 'existing'){
-      const tplChoice = document.querySelector('input[name=tplChoice]:checked');
-
-      $('tplPickWrap').classList.toggle('invalid', !tplChoice);
-
-      if(!tplChoice) ok = false;
-    }else{
-      $('tplPickWrap').classList.remove('invalid');
-    }
-
-    const matWrap = $('matZone').closest('.field-wrap');
-
-    matWrap.classList.toggle(
-      'invalid',
-      materialFiles.length === 0
-    );
-
-    if(materialFiles.length === 0) ok = false;
-
-  }else if(n === 3){
-    const agree = $('agreeOurTerms').checked;
-
-    $('agreeOurTerms')
-      .closest('.field-wrap')
-      .classList.toggle('invalid', !agree);
-
-    if(!agree) ok = false;
+  if(bad.length){
+    bad[0].scrollIntoView({behavior:'smooth', block:'center'});
+    if(typeof bad[0].focus === 'function' && bad[0].id !== 'tplPickWrap') bad[0].focus({preventScroll:true});
   }
-
-  return ok;
+  return bad.length === 0;
 }
 
 /* =========================================================
-   NAV BUTTON
-   ========================================================= */
-$('nextBtn').addEventListener('click', () => {
-  if(!validateStep(currentStep)){
-    showBanner('Lengkapi dulu data yang ditandai merah ya 🙏');
-    return;
-  }
-
-  currentStep++;
-  showStep(currentStep);
-});
-
-$('backBtn').addEventListener('click', () => {
-  currentStep--;
-  showStep(currentStep);
-});
-
-/* =========================================================
-   GENERATE PESAN WHATSAPP
+   PESAN WHATSAPP
    ========================================================= */
 function buildWhatsAppMessage(){
-  refreshOrderId();
-
-  const nama = $('nama').value.trim();
-  const noWa = $('noWa').value.trim();
-  const tglAcara = $('tglAcara').value;
-
-  const tplType =
-    document.querySelector('input[name=tplType]:checked')?.value || 'existing';
-
+  const custom = isCustom();
   const tpl = getSelectedTemplate();
-
-  const skMode =
-    document.querySelector('input[name=skMode]:checked')?.value || 'text';
-
-  const skTextVal = $('skText').value.trim();
   const reqText = $('reqText').value.trim();
 
-  const total =
-    tplType === 'custom'
-      ? CONFIG.priceCustom
-      : CONFIG.priceTemplate;
-
-  const tplLabel =
-    tplType === 'custom'
-      ? 'Custom Template'
-      : ('Template PNP — ' + (tpl?.name || '-'));
-
   const lines = [
-    'Halo Kak, saya ingin pesan template photobooth 📸',
+    'Halo Kak, saya ingin pesan template photobooth !',
     '',
     'ID Pesanan: ' + orderId,
-    'Nama: ' + nama,
-    'No. WA: ' + noWa,
-    'Tanggal Acara: ' + prettyDate(tglAcara),
-    'Pilihan: ' + tplLabel,
-    'Jumlah foto bahan: ' + materialFiles.length,
-    'Jumlah referensi: ' + (tplType === 'custom' ? refFiles.length : 0),
+    'Nama: ' + $('nama').value.trim(),
+    'No. WA: ' + $('noWa').value.trim(),
+    'Tanggal Acara: ' + prettyDate($('tglAcara').value),
+    'Pilihan: ' + (custom ? 'Custom Template' : 'Template PNP - ' + (tpl?.name || '-')),
     'Request teks: ' + (reqText || '-'),
-    'Total harga: ' + rupiah(total)
+    '',
+    'Total harga: ' + rupiah(totalPrice()),
+    '',
+    'Setelah ini saya kirim langsung di chat ini:',
+    '• Foto bahan'
   ];
 
-  if(materialFiles.length){
-    lines.push('');
-    lines.push('Foto bahan yang akan dilampirkan:');
-    fileNames(materialFiles).forEach((name, index) => {
-      lines.push((index + 1) + '. ' + name);
-    });
-  }
-
-  if(tplType === 'custom' && refFiles.length){
-    lines.push('');
-    lines.push('Referensi custom:');
-    fileNames(refFiles).forEach((name, index) => {
-      lines.push((index + 1) + '. ' + name);
-    });
-  }
-
-  if(skMode === 'text' && skTextVal){
-    lines.push('');
-    lines.push('Syarat & Ketentuan Photo Booth:');
-    lines.push(skTextVal);
-  }else if(skMode === 'file' && skFile){
-    lines.push('');
-    lines.push('File S&K: ' + skFile.name);
-  }
-
-  lines.push('');
-  lines.push('Catatan: foto/file akan saya lampirkan manual melalui WhatsApp.');
-  lines.push('');
-  lines.push('Mohon info langkah selanjutnya ya. Terima kasih!');
+  if(custom) lines.push('• Gambar referensi custom');
+  lines.push('• Syarat & ketentuan dari photobooth (kalau ada)');
+  lines.push('', 'Mohon info langkah selanjutnya ya. Terima kasih!');
 
   return lines.join('\n');
 }
 
-function buildAdminWaUrl(){
-  const message = buildWhatsAppMessage();
-  return (
-    'https://wa.me/' +
-    CONFIG.waNumber +
-    '?text=' +
-    encodeURIComponent(message)
-  );
-}
-
-/* =========================================================
-   BUTTON BUAT PESAN
-   ========================================================= */
 $('submitBtn').addEventListener('click', () => {
-  if(!validateStep(3)){
-    showBanner('Setujui dulu ketentuan di atas ya 🙏');
+  if(!validateAll()){
+    showBanner('Lengkapi dulu data yang ditandai merah ya 🙏');
     return;
   }
 
   refreshOrderId();
-
   if(!orderId){
     showBanner('Nomor WhatsApp belum cukup untuk membuat ID pesanan.');
     return;
   }
 
-  const url = buildAdminWaUrl();
-
-  $('waLink').href = url;
-  $('waLink').classList.remove('disabled');
-
-  $('status').textContent =
-    'Pesan WhatsApp sudah dibuat. Klik "Kirim ke WhatsApp" lalu lampirkan foto/file manual.';
-  $('status').classList.add('show');
-
-  $('submitBtn').textContent = 'Pesan Siap ✓';
+  const url = 'https://wa.me/' + CONFIG.waNumber + '?text=' + encodeURIComponent(buildWhatsAppMessage());
+  const win = window.open(url, '_blank');
+  if(win){
+    win.opener = null;
+  }else{
+    // Popup diblokir browser: buka di tab yang sama
+    window.location.href = url;
+  }
 });
 
 /* =========================================================
    LIVE UPDATE
    ========================================================= */
-['nama', 'noWa', 'tglAcara', 'reqText'].forEach(id => {
-  $(id).addEventListener('input', updateSummary);
-  $(id).addEventListener('change', updateSummary);
-});
-
-$('orderForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-});
+$('orderForm').addEventListener('input', updateSummary);
+$('orderForm').addEventListener('change', updateSummary);
+$('orderForm').addEventListener('submit', e => e.preventDefault());
 
 /* =========================================================
    INIT
    ========================================================= */
+$('priceTplTxt').textContent = rupiah(CONFIG.priceTemplate);
+$('priceCustomTxt').textContent = rupiah(CONFIG.priceCustom);
+$('finalTxt').textContent = rupiah(CONFIG.finalFee);
 $('maxRefTxt').textContent = CONFIG.maxRefPhotos + ' foto';
 $('maxMaterialTxt').textContent = CONFIG.maxMaterialPhotos;
 
 loadTemplates();
 updateSummary();
-showStep(1);
 </script>
 </body>
 </html>
